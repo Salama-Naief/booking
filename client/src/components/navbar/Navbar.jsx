@@ -26,16 +26,17 @@ export default function Navbar({type}){
     })
   }
   return(
-    <div className="relative w-full h-fit bg-blue-900 text-white">
+    <div className="relative w-full h-fit bg-blue-900 text-white rounded-bl-lg rounded-br-lg">
+      <div className="relative container m-auto">
      <div className="py-4 flex justify-between items-center px-5">
-       <div className="px-2 py-1 text-2xl md:text-3xl font-bold w-1/2 cursor-pointer">Booking</div>
+       <div className="px-2 py-1 text-2xl md:text-3xl font-bold w-7/12 cursor-pointer">Booking</div>
        <div className="w-1/2 md:hidden  flex justify-end">
         
           <IoPersonCircleOutline className="text-3xl mr-4 cursor-pointer"/>
           <IoMenu className="text-3xl cursor-pointer"/>
         
        </div>
-       <div className="hidden md:flex justify-between w-1/2 ">
+       <div className="hidden md:flex justify-between w-5/12 ">
          <div className="flex items-center justify-around w-1/3">
            <div className=""> EGP </div>
            <div className="w-7 h-7 rounded-full overflow-hidden cursor-pointer">
@@ -50,24 +51,24 @@ export default function Navbar({type}){
          </div>
        </div>
      </div>
-      <div className="pb-4 flex items-center px-2 w-screen overflow-x-scroll">
-        <div className={`px-4 mx-1 py-2 hover:border-white hover:border cursor-pointer flex items-center rounded-full`}>
+      <div className="pb-4 flex items-center px-2 w-screen overflow-x-scroll md:overflow-hidden">
+        <div className={`px-4 mx-1 py-2 hover:border-white border border-blue-900  cursor-pointer flex items-center rounded-full`}>
             <IoBedOutline className="text-2xl"/>
             <div className="ml-1.5 font-semibold">Stays</div>
         </div>
-        <div className={`px-4 mx-1 py-2 hover:border-white hover:border cursor-pointer flex items-center rounded-full`}>
+        <div className={`px-4 mx-1 py-2 hover:border-white border border-blue-900 cursor-pointer flex items-center rounded-full`}>
             <IoAirplaneOutline className="text-2xl"/>
             <div className="ml-1.5 font-semibold">Flight</div>
         </div>
-        <div className={`px-4 text-wrap-none mx-1 py-2 hover:border-white hover:border cursor-pointer flex items-center rounded-full`}>
+        <div className={`px-4 text-wrap-none mx-1 py-2 hover:border-white border border-blue-900 cursor-pointer flex items-center rounded-full`}>
             <IoCarSportOutline className="text-2xl"/>
             <div className="ml-1.5 w-24 font-semibold">Car rentals</div>
         </div>
-        <div className={`px-4 mx-1 py-2 hover:border-white hover:border cursor-pointer flex items-center rounded-full`}>
+        <div className={`px-4 mx-1 py-2 hover:border-white border border-blue-900 cursor-pointer flex items-center rounded-full`}>
             <FaUmbrellaBeach className="text-2xl"/>
             <div className="ml-1.5 font-semibold">Attractions</div>
         </div>
-        <div className={`px-4 mx-1 py-2 hover:border-white hover:border cursor-pointer flex items-center rounded-full`}>
+        <div className={`px-4 mx-1 py-2 hover:border-white border border-blue-900 cursor-pointer flex items-center rounded-full`}>
             <FaTaxi className="text-2xl"/>
             <div className="ml-1.5 w-28 font-semibold">Airport Taxis</div>
         </div>
@@ -84,13 +85,13 @@ export default function Navbar({type}){
          </div>
          <button className="my-6 bg-blue-500 py-2 px-4">Sign in / Register</button>
       </div>
-      <div className="absolute w-full bg-transparent left-0" style={{bottom:"-1.5rem"}}>
+      <div className="absolute w-full bg-transparent left-0 z-10" style={{bottom:"-1.5rem"}}>
         <div className="px-4   text-black flex">
-        <div className='flex grow'>
-         <input type="text" className="w-1/3 bg-gray-100 py-2 px-4 hover:outline-none  border-2 border-yellow-500" placeholder=" Your distenation"/>
+        <div className='flex grow '>
+         <input type="text" className="w-1/3 bg-gray-100 py-2 px-4 outline-none  border-2 border-yellow-500" placeholder=" Your distenation"/>
          <div className="relative w-1/3 bg-gray-100 py-2 px-4 border-2 border-yellow-500">
          <div onClick={()=>setDropDate(!dropDate)} className="">{`${format(state[0].startDate,"dd/MM/yyyy")}`} to {`${format(state[0].endDate,"dd/MM/yyyy")}`}</div>
-          <div  className={`${dropDate?"block":"hidden"} absolute left-0 top-`}>
+          <div  className={`${dropDate?"block":"hidden"} absolute left-0 top-8`}>
                     <DateRange
                       editableDateInputs={true}
                       onChange={item => setState([item.selection])}
@@ -234,6 +235,7 @@ export default function Navbar({type}){
            </div>
            </div>
          }
+      </div>
       </div>
     </div>
     );
