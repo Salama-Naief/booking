@@ -4,11 +4,12 @@ import { DateRange } from 'react-date-range';
 
 import Search from '../components/Search';
 import Navbar from "../components/navbar/Navbar";
-import {BsShare ,BsSuitHeart,BsStarFill,BsFillHandThumbsUpFill,BsWifi,BsSnow3,BsCupStraw} from "react-icons/bs"
-import {MdLocationOn,MdLocationCity,MdBathtub,MdAccessibleForward,MdFitnessCenter ,MdRoomService} from "react-icons/md"
+import {BsShare ,BsSuitHeart,BsStarFill,BsFillHandThumbsUpFill,BsWifi,BsSnow3,BsCupStraw,BsFillPersonFill} from "react-icons/bs"
+import {MdLocationOn,MdLocationCity,MdBathtub,MdAccessibleForward,MdFitnessCenter ,MdRoomService,MdBed} from "react-icons/md"
 import {HiBadgeCheck} from "react-icons/hi";
 import {Ri24HoursLine} from "react-icons/ri";
-import {IoLogoNoSmoking} from "react-icons/io";
+import {IoLogoNoSmoking,IoMdArrowDropright} from "react-icons/io";
+import {IoBedOutline} from "react-icons/io5";
 import {FaParking} from "react-icons/fa"
 import {GiCoffeeCup} from "react-icons/gi"
 
@@ -170,20 +171,70 @@ const [state, setState] = useState([
                 </div>
               </div>
             </div>
-            <div className="w-1/4 bg-blue-200 rounded p-4">
+            <div className="w-1/4 bg-blue-100 rounded p-4">
               <div className="text-xl font-bold py-2">Property Highlights</div>
               <div className="text-lg font-semibold py-2">Breakfast Info</div>
               <div className="py-2 text-sm">Buffet</div>
               <div className="text-lg font-semibold py-2">Rooms with:</div>
-              <div className="text-lg py-2 flex items-center"><MdLocationCity className="text-xl mr-1"/><span className='text-sm'>City view</span></div>
-              <div className="text-lg font-smibold py-2 flex items-center"><FaParking className='text-xl mr-1'/><span className='text-sm'>	Private parking at the hotel</span></div>
+              <div className="text-lg py-2 flex items-center"><MdLocationCity className="text-3xl mr-1"/><span className='text-sm'>City view</span></div>
+              <div className="text-lg font-smibold py-2 flex items-center"><FaParking className='text-3xl mr-1'/><span className='text-sm'>	Private parking at the hotel</span></div>
               <div className="text-lg font-semibold py-2">Loyal Customers</div>
               <div className="flex items-center">
                  <div className='text-3xl mr-1'><HiBadgeCheck/></div>
                  <div className='text-sm'>There are more repeat guests here than most other properties.</div>
               </div>
-              <button className="text-lg bg-blue-500 text-white px-2 rounded-lg py-1.5 mt-4 flex items-center w-full">Reserve</button>
+              <button className="text-lg bg-blue-500 font-bold justify-center text-white px-2 rounded-lg py-1.5 mt-4 flex items-center w-full">Reserve</button>
             </div>
+           </div>
+
+           <div className='w-full mt-4'>
+            <table className='w-full'>
+              <thead>
+            <th className='bg-blue-400 flex text-white w-full'>
+                <td className='w-1/4 text-left border-b-2 border-blue-500 p-4'>Sleeps</td>
+                <td className='w-2/4 text-left border-b-2 border-l border-r border-blue-500 p-4'>Room types</td>
+                <td className='w-1/4 text-left border-b-2 border-blue-500'></td>
+              </th>
+              </thead>
+              <tbody className=''>
+                <th className="flex">
+                <td className='px-4 py-2 w-1/4  border-b-2 flex items-center border-blue-500'>
+                  <div className="flex items-center justify-center">
+                  <span className='flex items-center mr-2'><BsFillPersonFill/> <span className="font-normal">x4</span></span> <span className='font-normal'>+</span><BsFillPersonFill className='text-lg'/><BsFillPersonFill className='text-lg'/><BsFillPersonFill className='text-lg'/>
+                 </div>  
+                </td>
+                <td className='px-4 py-2  border-b-2 border-r border-l border-blue-500 w-2/4'>
+                  <div className=" flex items-center"><IoMdArrowDropright className="text-orange-500 text-xl"/><span className='text-blue-500 font-semibold'>Deluxe Queen Room with Two Queen Beds</span></div>
+                  <div className='flex items-center'><span className=" text-sm font-normal text-gray-500 mx-2">1 queen bed</span><IoBedOutline/></div>
+                </td>
+                <td className='px-4 py-2 border-b-2 border-blue-500 w-1/4'><button className="bg-blue-500 py-2 text-white flex justify-center font-semibold w-full rounded">Show price</button></td>
+              </th>
+              <th className="flex">
+                <td className='px-4 py-2 w-1/4  border-b-2 flex items-center border-blue-500'>
+                  <div className="flex items-center justify-center">
+                  <span className='flex items-center mr-2'><BsFillPersonFill/> <span className="font-normal">x4</span></span> <span className='font-normal'>+</span><BsFillPersonFill className='text-lg'/><BsFillPersonFill className='text-lg'/>
+                 </div>  
+                </td>
+                <td className='px-4 py-2  border-b-2 border-r border-l border-blue-500 w-2/4'>
+                  <div className=" flex items-center"><IoMdArrowDropright className="text-orange-500 text-xl"/><span className='text-blue-500 font-semibold'>King Room with Sofa Bed</span></div>
+                  <div className='flex items-center'><span className=" text-sm font-normal text-gray-500 mx-2">1 queen bed</span><IoBedOutline/> <span className=" text-sm font-normal text-gray-500 mx-2">and 1 soft bed</span><MdBed/></div>
+                </td>
+                <td className='px-4 py-2 border-b-2 border-blue-500 w-1/4'><button className="bg-blue-500 py-2 text-white flex justify-center font-semibold w-full rounded">Show price</button></td>
+              </th>
+              <th className="flex">
+                <td className='px-4 py-2 w-1/4  border-b-2 flex items-center border-blue-500'>
+                  <div className="flex items-center justify-center">
+                  <span className='flex items-center mr-2'><BsFillPersonFill/> <span className="font-normal">x4</span></span> <span className='font-normal'>+</span><BsFillPersonFill className='text-lg'/><BsFillPersonFill className='text-lg'/>
+                 </div>  
+                </td>
+                <td className='px-4 py-2  border-b-2 border-r border-l border-blue-500 w-2/4'>
+                  <div className=" flex items-center"><IoMdArrowDropright className="text-orange-500 text-xl"/><span className='text-blue-500 font-semibold'>Executive King Room</span></div>
+                  <div className='flex items-center'><span className=" text-sm font-normal text-gray-500 mx-2">1 queen bed</span><IoBedOutline/> <span className=" text-sm font-normal text-gray-500 mx-2">and 1 soft bed</span><MdBed/></div>
+                </td>
+                <td className='px-4 py-2 border-b-2 border-blue-500 w-1/4'><button className="bg-blue-500 py-2 text-white flex justify-center font-semibold w-full rounded">Show price</button></td>
+              </th>
+              </tbody>
+            </table>
            </div>
          </div>
     </div>
