@@ -5,14 +5,37 @@ import 'react-date-range/dist/theme/default.css'
 import {useState} from "react"
 import {DateRange} from "react-date-range"
 import {format} from "date-fns"
+import {Link } from "react-router-dom"
+import {useTranslation} from "react-i18next"
+
 export default function Navbar({type}){
   const [dropDate,setDropDate]=useState(false)
   const [dropInfo,setDropInfo]=useState(false)
+  const { t,i18n } = useTranslation("topbar");
   const [userInfo,setUserInfo]=useState({
     adults:1,
     children:0,
     rooms:1
   })
+  
+  //change languagues function
+  const langhandler=(e)=>{
+     i18n.changeLanguage(e.target.value)
+  }
+  
+    const styleandler=()=>{
+    if(i18n.language==="ar"){
+      return{
+        direction: "rtl",
+          textAlign: "right"
+      }
+    }else{
+      return{
+        direction: "ltr",
+          textAlign: "left"
+      }
+    }
+  }
   const [state, setState] = useState([
   {
     startDate: new Date(),
@@ -26,7 +49,7 @@ export default function Navbar({type}){
     })
   }
   return(
-    <div className="relative w-full h-fit bg-blue-900 text-white rounded-bl-lg rounded-br-lg">
+    <div className="relative w-full h-fit bg-blue-900 text-white rounded-bl-lg rounded-br-lg" style={styleandler} >
       <div className="relative container m-auto">
      <div className="py-4 flex justify-between items-center px-5">
        <div className="px-2 py-1 text-2xl md:text-3xl font-bold w-7/12 cursor-pointer">Booking</div>
@@ -39,6 +62,20 @@ export default function Navbar({type}){
        <div className="hidden md:flex justify-between w-5/12 ">
          <div className="flex items-center justify-around w-1/3">
            <div className=""> EGP </div>
+           
+           <select name="" id="" onChange={langhandler} className='bg-black text-white'>
+                <option  value="en">
+                  <div className="w-7 h-7 rounded-full overflow-hidden cursor-pointer">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTlHXsCWAOjRArpdl7OOhmWW_99VWhp3IRO1Q&usqp=CAU" className="object-cover w-full h-full" alt=""/>
+                  </div>
+                </option>
+                 <option  value="ar">
+                 <div className="w-7 h-7 rounded-full overflow-hidden cursor-pointer">
+                     <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTlHXsCWAOjRArpdl7OOhmWW_99VWhp3IRO1Q&usqp=CAU" className="object-cover w-full h-full" alt=""/>
+                  </div>
+                 </option>
+             </select>
+                   
            <div className="w-7 h-7 rounded-full overflow-hidden cursor-pointer">
              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTlHXsCWAOjRArpdl7OOhmWW_99VWhp3IRO1Q&usqp=CAU" className="object-cover w-full h-full" alt=""/>
            </div>
@@ -46,8 +83,8 @@ export default function Navbar({type}){
          </div>
          <div className="w-2/3 flex justify-between items-center">
           <div className="cursor-pointer px-3 py-1 border border-white flex items-center">list your property</div>
-           <button className=" px-3 py-1 text-blue-900 bg-white">Register</button>
-          <button className=" px-3 py-1 text-blue-900 bg-white">Sign in</button>
+           <Link to="/register" className=" px-3 py-1 text-blue-900 bg-white">Register</Link>
+          <Link to="/login" className=" px-3 py-1 text-blue-900 bg-white">Sign in</Link>
          </div>
        </div>
      </div>
@@ -83,7 +120,7 @@ export default function Navbar({type}){
          <div className=" text-xl w-2/3">
            Get rewarded for your travels – unlock instant savings of 10% or more with a free Booking.com account
          </div>
-         <button className="my-6 bg-blue-500 py-2 px-4">Sign in / Register</button>
+         <Link to="/register" className="my-6 bg-blue-500 py-2 px-4">Sign in / Register</Link>
       </div>
       <div className="absolute w-full bg-transparent left-0 z-10" style={{bottom:"-1.5rem"}}>
         <div className="px-4   text-black flex">

@@ -1,6 +1,7 @@
 
 import HomePage from "./HomePage";
 import SingleHotelPage from "./SingleHotelPage";
+import RegisterPage from "./RegisterPage";
 import FooterEmail from "../components/footer/FooterEmail";
 import {
   BrowserRouter as Router,
@@ -19,6 +20,8 @@ export default function RootPage(){
         <Route path="/" element={<HomePage/>}/>
         <Route path="/hotel" element={<Hotel/>}/>
         <Route path="/singlehotel" element={<SingleHotelPage/>}/>
+        <Route path="/register" element={<RegisterPage type="register"/>}/>
+        <Route path="/login" element={<RegisterPage type="login"/>}/>
       </Routes>
       
       <FooterEmail/>

@@ -1,6 +1,7 @@
 import { format } from 'date-fns'
 import React, { useState } from 'react'
-import { DateRange } from 'react-date-range';
+import { DateRange } from 'react-date-range'
+import {Link } from "react-router-dom"
 
 export default function Search({setUserInfo,userInfo,setState,state}) {
     
