@@ -17,25 +17,14 @@ export default function Navbar({type}){
     children:0,
     rooms:1
   })
+
   
   //change languagues function
   const langhandler=(e)=>{
      i18n.changeLanguage(e.target.value)
   }
   
-    const styleandler=()=>{
-    if(i18n.language==="ar"){
-      return{
-        direction: "rtl",
-          textAlign: "right"
-      }
-    }else{
-      return{
-        direction: "ltr",
-          textAlign: "left"
-      }
-    }
-  }
+
   const [state, setState] = useState([
   {
     startDate: new Date(),
@@ -49,7 +38,7 @@ export default function Navbar({type}){
     })
   }
   return(
-    <div className="relative w-full h-fit bg-blue-900 text-white rounded-bl-lg rounded-br-lg" style={styleandler} >
+    <div className="relative w-full h-fit bg-blue-900 text-white rounded-bl-lg rounded-br-lg"  >
       <div className="relative container m-auto">
      <div className="py-4 flex justify-between items-center px-5">
        <div className="px-2 py-1 text-2xl md:text-3xl font-bold w-7/12 cursor-pointer">Booking</div>
@@ -63,16 +52,14 @@ export default function Navbar({type}){
          <div className="flex items-center justify-around w-1/3">
            <div className=""> EGP </div>
            
-           <select name="" id="" onChange={langhandler} className='bg-black text-white'>
+           <select name="" id=""  onChange={langhandler}  className='bg-black text-white'>
                 <option  value="en">
-                  <div className="w-7 h-7 rounded-full overflow-hidden cursor-pointer">
-                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTlHXsCWAOjRArpdl7OOhmWW_99VWhp3IRO1Q&usqp=CAU" className="object-cover w-full h-full" alt=""/>
-                  </div>
+                  En
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTlHXsCWAOjRArpdl7OOhmWW_99VWhp3IRO1Q&usqp=CAU" className="object-cover w-7 h-7 rounded-full overflow-hidden cursor-pointer" alt=""/>
                 </option>
                  <option  value="ar">
-                 <div className="w-7 h-7 rounded-full overflow-hidden cursor-pointer">
-                     <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTlHXsCWAOjRArpdl7OOhmWW_99VWhp3IRO1Q&usqp=CAU" className="object-cover w-full h-full" alt=""/>
-                  </div>
+                  Ar
+                     <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTlHXsCWAOjRArpdl7OOhmWW_99VWhp3IRO1Q&usqp=CAU" className="object-cover w-7 h-7 rounded-full overflow-hidden cursor-pointer" alt=""/>
                  </option>
              </select>
                    
@@ -82,32 +69,32 @@ export default function Navbar({type}){
            <div className="flex justify-center items-center px-3 py-1 rounded-full text-xl font-semibold border border-white cursor-pointer">?</div>
          </div>
          <div className="w-2/3 flex justify-between items-center">
-          <div className="cursor-pointer px-3 py-1 border border-white flex items-center">list your property</div>
-           <Link to="/register" className=" px-3 py-1 text-blue-900 bg-white">Register</Link>
-          <Link to="/login" className=" px-3 py-1 text-blue-900 bg-white">Sign in</Link>
+          <div className="cursor-pointer px-3 py-1 border border-white flex items-center">{t("listProprty")}</div>
+           <Link to="/register" className=" px-3 py-1 text-blue-900 bg-white">{t("registr")}</Link>
+          <Link to="/login" className=" px-3 py-1 text-blue-900 bg-white">{t("signin")}</Link>
          </div>
        </div>
      </div>
       <div className="pb-4 flex items-center px-2 w-screen overflow-x-scroll md:overflow-hidden">
         <div className={`px-4 mx-1 py-2 hover:border-white border border-blue-900  cursor-pointer flex items-center rounded-full`}>
             <IoBedOutline className="text-2xl"/>
-            <div className="ml-1.5 font-semibold">Stays</div>
+            <div className="ml-1.5 font-semibold">{t("stays")}</div>
         </div>
         <div className={`px-4 mx-1 py-2 hover:border-white border border-blue-900 cursor-pointer flex items-center rounded-full`}>
             <IoAirplaneOutline className="text-2xl"/>
-            <div className="ml-1.5 font-semibold">Flight</div>
+            <div className="ml-1.5 font-semibold">{t("flight")}</div>
         </div>
         <div className={`px-4 text-wrap-none mx-1 py-2 hover:border-white border border-blue-900 cursor-pointer flex items-center rounded-full`}>
             <IoCarSportOutline className="text-2xl"/>
-            <div className="ml-1.5 w-24 font-semibold">Car rentals</div>
+            <div className="ml-1.5 w-24 font-semibold">{t("CarRentals")}</div>
         </div>
         <div className={`px-4 mx-1 py-2 hover:border-white border border-blue-900 cursor-pointer flex items-center rounded-full`}>
             <FaUmbrellaBeach className="text-2xl"/>
-            <div className="ml-1.5 font-semibold">Attractions</div>
+            <div className="ml-1.5 font-semibold">{t("attractions")}</div>
         </div>
         <div className={`px-4 mx-1 py-2 hover:border-white border border-blue-900 cursor-pointer flex items-center rounded-full`}>
             <FaTaxi className="text-2xl"/>
-            <div className="ml-1.5 w-28 font-semibold">Airport Taxis</div>
+            <div className="ml-1.5 w-28 font-semibold">{t("airportTaxis")}</div>
         </div>
       </div>
       {
@@ -115,17 +102,17 @@ export default function Navbar({type}){
       <hr className=""/>
       <div className="p-4 mb-4">
          <div className="text-5xl font-bold py-4">
-           A lifetime of discounts? It's Genius.
+           {t("offers")}
          </div>
          <div className=" text-xl w-2/3">
-           Get rewarded for your travels – unlock instant savings of 10% or more with a free Booking.com account
+          {t("offersDescription")}
          </div>
-         <Link to="/register" className="my-6 bg-blue-500 py-2 px-4">Sign in / Register</Link>
+         <Link to="/register" ><div className="my-6 w-fit bg-blue-500 py-2 px-4">{t("signinregisterbtn")}</div></Link>
       </div>
       <div className="absolute w-full bg-transparent left-0 z-10" style={{bottom:"-1.5rem"}}>
         <div className="px-4   text-black flex">
         <div className='flex grow '>
-         <input type="text" className="w-1/3 bg-gray-100 py-2 px-4 outline-none  border-2 border-yellow-500" placeholder=" Your distenation"/>
+         <input type="text" className="w-1/3 bg-gray-100 py-2 px-4 outline-none  border-2 border-yellow-500" placeholder={t("destination")}/>
          <div className="relative w-1/3 bg-gray-100 py-2 px-4 border-2 border-yellow-500">
          <div onClick={()=>setDropDate(!dropDate)} className="">{`${format(state[0].startDate,"dd/MM/yyyy")}`} to {`${format(state[0].endDate,"dd/MM/yyyy")}`}</div>
           <div  className={`${dropDate?"block":"hidden"} absolute left-0 top-8`}>
@@ -138,10 +125,10 @@ export default function Navbar({type}){
                     </div>
          </div>
          <div className="relative w-1/3 bg-gray-100 py-2 px-4 border-2 border-yellow-500"> 
-         <div className=" cursor-pointer" onClick={()=>setDropInfo(!dropInfo)}>{`  ${userInfo.adults} adults, ${userInfo.children} children, ${userInfo.rooms} rooms`} </div>
+         <div className=" cursor-pointer" onClick={()=>setDropInfo(!dropInfo)}>{`  ${userInfo.adults} ${t("adutls")}, ${userInfo.children} ${t("cheldren")}, ${userInfo.rooms} ${t("rooms")}`} </div>
            <div className={`${dropInfo?"block":"hidden"} absolute w-5/6 border-2 border-yellow-500 bg-white left-6 top-10`} >
                  <div className="flex justify-between m-4">
-                    <div className="w-2/3">Adults</div>
+                    <div className="w-2/3">{t("adutls")}</div>
                     <div className="w-1/3 flex justify-between items-center">
                       <button disabled={userInfo.adults<=1} onClick={()=>userInfoHandler("adults","dec")} className="px-2 py-0.5 border border-blue-500">-</button>
                       <div className="" >{userInfo.adults}</div>
@@ -149,7 +136,7 @@ export default function Navbar({type}){
                     </div>
                  </div>
                  <div className="flex justify-between m-4">
-                    <div className="w-2/3">Children</div>
+                    <div className="w-2/3">{t("cheldren")}</div>
                     <div className="w-1/3 flex justify-between items-center">
                       <button disabled={userInfo.children<=0} onClick={()=>userInfoHandler("children","dec")} className="px-2 py-0.5 border border-blue-500">-</button>
                       <div className="" >{userInfo.children}</div>
@@ -157,7 +144,7 @@ export default function Navbar({type}){
                     </div>
                  </div>
                  <div className="flex justify-between m-4">
-                    <div className="w-2/3">Rooms</div>
+                    <div className="w-2/3">{t("rooms")}</div>
                     <div className="w-1/3 flex justify-between items-center">
                       <button disabled={userInfo.rooms<=1} onClick={()=>userInfoHandler("rooms","dec")} className="px-2 py-0.5 border border-blue-500">-</button>
                       <div className="" >{userInfo.rooms}</div>
@@ -168,7 +155,7 @@ export default function Navbar({type}){
                </div>
          </div>
          </div>
-         <button className="px-3 text-white py-2 bg-blue-500 border-2 border-yellow-500">Search</button>
+         <button className="px-3 text-white py-2 bg-blue-500 border-2 border-yellow-500">{t("search")}</button>
         </div>
       </div>
       </div>
@@ -177,23 +164,23 @@ export default function Navbar({type}){
          {
            type==="home"&&<div className="p-4 text-black bg-white">
              <div className="py-4">
-               <div className="text-2xl font-bold">Search</div>
+               <div className="text-2xl font-bold">{t("search")}</div>
                <div className="py-4">Destinations, properties, even an address</div>
              </div>
              <div className="border-4 border-yellow-500">
                <div className="border-2 px-2 border-yellow-500 flex items-center">
-                <input type="text" className="w-full px-4 py-3 grow focus:outline-none" placeholder="Istanpole"/>
+                <input type="text" className="w-full px-4 py-3 grow focus:outline-none" placeholder={t("destination")}/>
                 <IoSearchOutline className="cursor-pointer h-7 w-7"/>
                </div>
                <div className=" border-2 border-yellow-500 text-gray-500 " >
                <div className="flex items-center" onClick={()=>setDropDate(!dropDate)}>
                    <div className="px-4 w-1/2">
-                     <div className="pt-4 pb-2">check-in date</div>
+                     <div className="pt-4 pb-2">{t("checkInDate")}</div>
                      <div className=" pb-4">{`${format(state[0].startDate,"dd/MM/yyyy")}`}</div>
                     </div>
                     <span className="text-xl bg-gray-300 full w-0.5 py-1"></span>
                     <div className="px-4 w-1/2">
-                   <div className="pt-4 pb-2">check-out date</div>
+                   <div className="pt-4 pb-2">{t("checkoutDate")}</div>
                    <div className="pb-4 pt-0">{`${format(state[0].endDate,"dd/MM/yyyy")}`}</div>
                 
                   </div>
@@ -213,7 +200,7 @@ export default function Navbar({type}){
                  <div className="cursor-pointer flex " onClick={()=>setDropInfo(!dropInfo)} >
                <div className="flex w-1/3 justify-between">
                <div>
-                  <div className="p-3">Adults</div>
+                  <div className="p-3">{t("adutls")}</div>
                   <div className="px-3">1</div>
                 </div>
                     <div className="flex items-center">
@@ -222,7 +209,7 @@ export default function Navbar({type}){
                 </div>
                <div className="flex w-1/3 justify-between">
                  <div>
-                    <div className="p-3">Children</div>
+                    <div className="p-3">{t("cheldren")}</div>
                     <div className="px-3">2</div>
                   </div>
                   <div className="flex items-center">
@@ -230,13 +217,13 @@ export default function Navbar({type}){
                   </div>
                 </div>
                <div className=" w-1/3 justify-between">
-                  <div className="p-3">Rooms</div>
+                  <div className="p-3">{t("rooms")}</div>
                   <div className="px-3">1</div>
                 </div>
                 </div>
                <div className={`${dropInfo?"block":"hidden"} absolute w-5/6 border-2 border-yellow-500 bg-white left-6`} style={{bottom:"-1.5rem"}}>
                  <div className="flex justify-between m-4">
-                    <div className="w-2/3">Adults</div>
+                    <div className="w-2/3">{t("adutls")}</div>
                     <div className="w-1/3 flex justify-between items-center">
                       <button disabled={userInfo.adults<=1} onClick={()=>userInfoHandler("adults","dec")} className="px-2 py-0.5 border border-blue-500">-</button>
                       <div className="" >{userInfo.adults}</div>
@@ -244,7 +231,7 @@ export default function Navbar({type}){
                     </div>
                  </div>
                  <div className="flex justify-between m-4">
-                    <div className="w-2/3">Children</div>
+                    <div className="w-2/3">{t("cheldren")}</div>
                     <div className="w-1/3 flex justify-between items-center">
                       <button disabled={userInfo.children<=0} onClick={()=>userInfoHandler("children","dec")} className="px-2 py-0.5 border border-blue-500">-</button>
                       <div className="" >{userInfo.children}</div>
@@ -252,7 +239,7 @@ export default function Navbar({type}){
                     </div>
                  </div>
                  <div className="flex justify-between m-4">
-                    <div className="w-2/3">Rooms</div>
+                    <div className="w-2/3">{t("rooms")}</div>
                     <div className="w-1/3 flex justify-between items-center">
                       <button disabled={userInfo.rooms<=1} onClick={()=>userInfoHandler("rooms","dec")} className="px-2 py-0.5 border border-blue-500">-</button>
                       <div className="" >{userInfo.rooms}</div>
@@ -267,7 +254,7 @@ export default function Navbar({type}){
              <div className="ml-4">travel for working</div>
            </div>
            <div className="border-2 text-gray-500 flex border-yellow-500 items-center">
-             <button className="h-full w-full bg-blue-500 text-white text-lg py-3">Search</button>
+             <button className="h-full w-full bg-blue-500 text-white text-lg py-3">{t("search")}</button>
            </div>
            </div>
            </div>

@@ -1,5 +1,6 @@
 
 import HomePage from "./HomePage";
+import {Suspense} from 'react'
 import SingleHotelPage from "./SingleHotelPage";
 import RegisterPage from "./RegisterPage";
 import FooterEmail from "../components/footer/FooterEmail";
@@ -9,23 +10,23 @@ import {
   Routes
 } from "react-router-dom";
 import Hotel from "./Hotel";
+import {useTranslation} from "react-i18next"
 export default function RootPage(){
-  
+  const { i18n } = useTranslation("topbar");
   return(
-    <Router>
-
-    <div className="w-full overflow-hidden">
-     
-      <Routes>
-        <Route path="/" element={<HomePage/>}/>
-        <Route path="/hotel" element={<Hotel/>}/>
-        <Route path="/singlehotel" element={<SingleHotelPage/>}/>
-        <Route path="/register" element={<RegisterPage type="register"/>}/>
-        <Route path="/login" element={<RegisterPage type="login"/>}/>
-      </Routes>
-      
-      <FooterEmail/>
-    </div>
-    </Router>
+    <Suspense fallback={null}>
+      <Router>
+      <div className="w-full overflow-hidden " style={i18n.language==="ar"?{direction:"rtl",textAlign:"right"}:{direction:"ltr",textAlign:"left"}}>
+        <Routes>
+          <Route path="/" element={<HomePage/>}/>
+          <Route path="/hotel" element={<Hotel/>}/>
+          <Route path="/singlehotel" element={<SingleHotelPage/>}/>
+          <Route path="/register" element={<RegisterPage type="register"/>}/>
+          <Route path="/login" element={<RegisterPage type="login"/>}/>
+        </Routes>
+        <FooterEmail/>
+      </div>
+      </Router>
+    </Suspense>
     );
 }

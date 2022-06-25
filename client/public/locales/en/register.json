@@ -1,0 +1,15 @@
+{
+    "title":"Sign in or create an account",
+    "email":"email address",
+    "emailorphone":"email or phone",
+    "password":"password",
+    "confirmpassword":"confrim password",
+    "signin":"Signin",
+    "contunuewithemail":"Continue with email",
+    "options":"or use one of these options",
+    "conditions":"By signing in or creating an account, you agree with our",
+    "terms":"Terms & Conditions",
+    "and":"and",
+    "privacy":"Privacy Statement",
+    "rights":"All rights is preseved"
+}

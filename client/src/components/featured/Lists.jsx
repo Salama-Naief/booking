@@ -1,7 +1,7 @@
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
-
+import {Link} from "react-router-dom"
 
 export default function Lists({title,data}){
   
@@ -36,6 +36,7 @@ export default function Lists({title,data}){
   };
   
   return(
+    <Link to="hotel">
     <div className="w-auto px-4 md:px-0">
       <div className="pb-6 pt-10 px-4 text-xl md:text-3xl font-bold">{title}</div>
         <Slider {...settings}>
@@ -65,6 +66,7 @@ export default function Lists({title,data}){
 
       </Slider>
       </div>
+      </Link>
     
     )
 }

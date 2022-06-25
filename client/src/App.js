@@ -7,7 +7,7 @@ import i18next from 'i18next';
 function App() {
   
   useEffect(()=>{
-   // i18next.changeLanguage("en")
+    i18next.changeLanguage("en")
   },[])
   return (
     <RootPage/>

@@ -12,11 +12,11 @@
   "signinregisterbtn":"Sign in / Register",
   "checkInDate":"checkin date",
   "checkoutDate":"checkout date",
-  "adutls":"adutls",
+  "adutls":"Adults",
   "cheldren":"children",
   "rooms":"rooms",
   "destination":"Your distenation",
   "search":"Search",
-  "workingTravel":"travel for working",
+  "workingTravel":"travel for working"
   
 }

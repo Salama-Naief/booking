@@ -11,7 +11,8 @@ i18n
   .init({
     fallbackLng: 'en',
     debug: true,
-    ns:["topbar","lists"],
+    saveMissing:false,
+    ns:["topbar","search","register","footer","hotel"],
     interpolation: {
       escapeValue: false, 
       formatSeparator:","
