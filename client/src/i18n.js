@@ -12,7 +12,7 @@ i18n
     fallbackLng: 'en',
     debug: true,
     saveMissing:false,
-    ns:["topbar","search","register","footer","hotel"],
+    ns:["topbar","search","register","footer","hotel","home"],
     interpolation: {
       escapeValue: false, 
       formatSeparator:","
