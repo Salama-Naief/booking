@@ -25,7 +25,9 @@ const [state, setState] = useState([
       <>
        <Navbar type=""/>
     <div className='container m-auto flex py-8 '>
-        <Search state={state} setState={setState} userInfo={userInfo} setUserInfo={setUserInfo}/>
+       <div className="hidden md:block">
+         <Search state={state} setState={setState} userInfo={userInfo} setUserInfo={setUserInfo}/>
+        </div>
         <div className='flex-grow px-2'>
             <HotelList days={format(state[0].endDate,"dd")-format(state[0].startDate,"dd")} userInfo={userInfo}/>
             <HotelList days={format(state[0].endDate,"dd")-format(state[0].startDate,"dd")} userInfo={userInfo}/>

@@ -7,9 +7,11 @@ import {DateRange} from "react-date-range"
 import {format} from "date-fns"
 import {Link } from "react-router-dom"
 import {useTranslation} from "react-i18next"
+import SmallSearch from "../SmallSearch"
 
 export default function Navbar({type}){
   const [dropDate,setDropDate]=useState(false)
+  const [sidemenu,setSidemenu]=useState(false)
   const [dropInfo,setDropInfo]=useState(false)
   const { t,i18n } = useTranslation("topbar");
   const [userInfo,setUserInfo]=useState({
@@ -40,12 +42,14 @@ export default function Navbar({type}){
   return(
     <div className="relative w-full h-fit bg-blue-900 text-white rounded-bl-lg rounded-br-lg"  >
       <div className="relative container m-auto">
-     <div className="py-4 flex justify-between items-center px-5">
+      <div className="fixed w-full bg-blue-900 z-20 left-0 top-0">
+      <div className="relative container m-auto">
+     <div className="relative py-4 flex justify-between items-center px-5">
        <div className="px-2 py-1 text-2xl md:text-3xl font-bold w-7/12 cursor-pointer">Booking</div>
        <div className="w-1/2 md:hidden  flex justify-end">
         
           <IoPersonCircleOutline className="text-3xl mr-4 cursor-pointer"/>
-          <IoMenu className="text-3xl cursor-pointer"/>
+          <IoMenu onClick={()=>setSidemenu(true)} className="text-3xl cursor-pointer"/>
         
        </div>
        <div className="hidden md:flex justify-between w-5/12 ">
@@ -70,8 +74,8 @@ export default function Navbar({type}){
          </div>
          <div className="w-2/3 flex justify-between items-center">
           <div className="cursor-pointer px-3 py-1 border border-white flex items-center">{t("listProprty")}</div>
-           <Link to="/register" className=" px-3 py-1 text-blue-900 bg-white">{t("registr")}</Link>
-          <Link to="/login" className=" px-3 py-1 text-blue-900 bg-white">{t("signin")}</Link>
+           <Link to="/register"><div className=" px-3 py-1 text-blue-900 bg-white">{t("registr")}</div></Link>
+          <Link to="/login"><div className=" px-3 py-1 text-blue-900 bg-white">{t("signin")}</div></Link>
          </div>
        </div>
      </div>
@@ -97,8 +101,10 @@ export default function Navbar({type}){
             <div className="ml-1.5 w-28 font-semibold">{t("airportTaxis")}</div>
         </div>
       </div>
+      </div>
+      </div>
       {
-      type==="home" && <div className="hidden md:block">
+      type==="home" && <div className="hidden mt-40 md:block">
       <hr className=""/>
       <div className="p-4 mb-4">
          <div className="text-5xl font-bold py-4">
@@ -161,8 +167,7 @@ export default function Navbar({type}){
       </div>
       }
       <div className="block md:hidden">
-         {
-           type==="home"&&<div className="p-4 text-black bg-white">
+         <div className="p-4 text-black bg-white">
              <div className="py-4">
                <div className="text-2xl font-bold">{t("search")}</div>
                <div className="py-4">Destinations, properties, even an address</div>
@@ -258,8 +263,27 @@ export default function Navbar({type}){
            </div>
            </div>
            </div>
-         }
       </div>
+      </div>
+      
+      <div className={`${sidemenu?"flex":"hidden"}  fixed py-4 px-2 items-center flex-col ${i18n.language==="en"?"right-0 ":"left-0"} bottom-0 w-1/2 h-3/4 bg-blue-900 rounded-lg z-10`}>
+         <div onClick={()=>setSidemenu(false)} className={`absolute ${i18n.language==="en"?"left-0":"right-0"} p-1 m-1 top-0 cursor-pointer`}>X</div>
+           <Link to="/register" className="mt-8 w-full"><div className=" px-3 py-1 text-blue-900 bg-white">{t("registr")}</div></Link>
+           <Link to="/login" className="mt-4 w-full"><div className=" px-3 py-1 text-blue-900 bg-white">{t("signin")}</div></Link>
+           <div className="mt-4 w-full cursor-pointer px-3 py-1 border border-white flex items-center">{t("listProprty")}</div>
+           <div className="flex items-center mt-4 justify-between w-full">
+           <div className="px-2">Language</div>
+            <select name="" id=""  onChange={langhandler}  className='bg-black text-white w-full bg-white outline-none border-0 py-2'>
+                <option  value="en">
+                  En
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTlHXsCWAOjRArpdl7OOhmWW_99VWhp3IRO1Q&usqp=CAU" className="object-cover w-7 h-7 rounded-full overflow-hidden cursor-pointer" alt=""/>
+                </option>
+                 <option  value="ar">
+                  Ar
+                     <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTlHXsCWAOjRArpdl7OOhmWW_99VWhp3IRO1Q&usqp=CAU" className="object-cover w-7 h-7 rounded-full overflow-hidden cursor-pointer" alt=""/>
+                 </option>
+             </select>
+             </div>
       </div>
     </div>
     );

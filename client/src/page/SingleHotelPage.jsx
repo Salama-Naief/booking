@@ -14,6 +14,11 @@ import {FaParking} from "react-icons/fa"
 import {GiCoffeeCup} from "react-icons/gi"
 import {useTranslation} from "react-i18next";
 import Progressbar from "../components/Progressbar";
+
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import Slider from "react-slick";
+
 export default function SingleHotelPage() {
 
   const {t} =useTranslation("hotel");
@@ -30,11 +35,20 @@ const [state, setState] = useState([
 }
 ]);
 
+  const settings = {
+    dots: true,
+    infinite: true,
+    arrows:true,
+    speed: 200,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+  };
+
   return (
     <div>
          <Navbar type=""/>
          <div className="container mx-auto py-6">
-           <div className='flex'>
+           <div className='hidden md:flex'>
                <div className='w-1/4'>
                   <Search state={state} setState={setState} userInfo={userInfo} setUserInfo={setUserInfo}/>
                </div>
@@ -140,11 +154,54 @@ const [state, setState] = useState([
                 </div>
                </div>
            </div>
+           
+           <div className="block md:hidden p-4">
+            <div className="">
+              <div className=" items-center flex justify-between">
+                <div className='bg-gray-500 rounded-lg text-white p-1 mx-2'>{t("type")}</div>
+                <div className="flex items-center">
+                <div className="flex px-2 text-yellow-400 ml-2"><BsStarFill className='mr-0.5'/><BsStarFill className='mr-0.5'/><BsStarFill className='mr-0.5'/><BsStarFill className='mr-0.5'/><BsStarFill className='mr-0.5'/></div>
+                <div className="ml-2 bg-yellow-400 p-1 rounded text-gray-100 flex justify-center items-center">
+                  <BsFillHandThumbsUpFill className=''/>
+                </div>
+                </div>
+                </div>
+                <div className="flex justify-between items-center pt-2">
+                  <div className="text-xl font-bold">SANA Metropolitan Hotel</div>
+                    <div className='text-blue-500  text-xl font-semibold cursor-pointer'><BsSuitHeart/></div>
+                </div>
+                 <div className="flex pt-2">
+                       <MdLocationOn className="text-blue-500 text-4xl cursor-pointer"/>
+                       <div className="ml-2 text-sm text-gray-600">Rua Soeiro Pereira Gomes, Parcela 2, Avenidas Novas, 1600-198 Lisbon, Portugal –</div>
+                    </div>
+                    <div className="flex justify-between  pt-2">
+                      <button className='text-blue-500 font-semibold'>{t("googlemap")}</button>
+                      <button className='text-blue-500 font-semibold flex items-center'><HiBadgeCheck className='text-xl'/> <span>{t("pricematch")}</span></button>
+                    </div>
+             </div>
+            <div className="my-4">
+                  <Slider {...settings}>
+                   <div className=' rounded-lg overflow-hidden h-52 cursor-pointer'>
+                      <img src="https://media-cdn.tripadvisor.com/media/photo-s/16/1a/ea/54/hotel-presidente-4s.jpg" className='object-cover rounded-lg w-full h-full p-1' alt="" />
+                   </div>
+                   <div className=' rounded-lg overflow-hidden h-52 cursor-pointer'>
+                      <img src="https://media-cdn.tripadvisor.com/media/photo-s/16/1a/ea/54/hotel-presidente-4s.jpg" className='object-cover rounded-lg w-full h-full p-1' alt="" />
+                   </div>
+                   <div className=' rounded-lg overflow-hidden h-52 cursor-pointer'>
+                      <img src="https://media-cdn.tripadvisor.com/media/photo-s/16/1a/ea/54/hotel-presidente-4s.jpg" className='object-cover rounded-lg w-full h-full p-1' alt="" />
+                   </div>
+                   <div className=' rounded-lg overflow-hidden h-52 cursor-pointer'>
+                      <img src="https://media-cdn.tripadvisor.com/media/photo-s/16/1a/ea/54/hotel-presidente-4s.jpg" className='object-cover rounded-lg w-full h-full p-1' alt="" />
+                   </div>
+            
+                  </Slider>
+            </div>
+           </div>
 
-           <div className="flex">
-            <div className="w-3/4">
+           <div className="flex px-4 md:px-0">
+            <div className="md:w-3/4">
               <div className="w-full">
-                <span className='leading-8 pr-6 text-justify'>The 4-star SANA Metropolitan Hotel is located near Praça de Espanha and only 5 minutes’ drive from Marquês de Pombal Square. It features rooms with seating areas and flat-screen TVs.
+                <span className='leading-8 text-gray-700 pr-6 text-justify text-ellipsis h-40'>The 4-star SANA Metropolitan Hotel is located near Praça de Espanha and only 5 minutes’ drive from Marquês de Pombal Square. It features rooms with seating areas and flat-screen TVs.
 
                 In-room amenities include satellite TV and a modern bathroom. Some have a separate sitting area.
 
@@ -156,13 +213,13 @@ const [state, setState] = useState([
 
                 SANA Metropolitan Hotel offers easy access to Lisbon’s main business district. The hotel is a short walk from Cidade Universitaria Metro Station.
                 </span>
-                <div className='text-xl font-bold pt-2'>SANA Metropolitan Hotel has been welcoming Booking.com guests since May 4, 2001</div>
+                <div className='text-lg md:text-xl font-bold pt-2'>SANA Metropolitan Hotel has been welcoming Booking.com guests since May 4, 2001</div>
                 <div className=''>Hotel chain/brand: SANA Hotels</div>
-                <div className='mt-4 font-bold text-lg'>{t("popularfacilities")}</div>
-                <div className="flex flex-wrap w-3/4">
+                <div className='mt-4 font-bold text-xl md:text-xl'>{t("popularfacilities")}</div>
+                <div className="flex flex-wrap md:w-3/4">
                   <div className="flex items-center mr-6 mt-4"><IoLogoNoSmoking className='text-green-600 text-2xl mr-0.5'/><span className='text-sm text-gray-900'>{t("nosmoking")}</span></div>
-                  <div className="flex items-center mr-6 mt-4"><MdAccessibleForward className='text-green-600 text-2xl mr-0.5'/><span className='text-sm text-gray-900'>{t("disabledguests")}</span></div>
                   <div className="flex items-center mr-6 mt-4"><MdFitnessCenter className='text-green-600 text-2xl mr-0.5'/><span className='text-sm text-gray-900'>{t("fitnesscenter")}</span></div>
+                  <div className="flex items-center mr-6 mt-4"><MdAccessibleForward className='text-green-600 text-2xl mr-0.5'/><span className='text-sm text-gray-900'>{t("disabledguests")}</span></div>
                   <div className="flex items-center mr-6 mt-4"><MdRoomService className='text-green-600 text-2xl mr-0.5'/><span className='text-sm text-gray-900'>{t("roomservice")}</span></div>
                   <div className="flex items-center mr-6 mt-4"><FaParking className='text-green-600 text-2xl mr-0.5'/><span className='text-sm text-gray-900'>{t("privateParking")}</span></div>
                   <div className="flex items-center mr-6 mt-4"><BsWifi className='text-green-600 text-2xl mr-0.5'/><span className='text-sm text-gray-900'>{t("wiFiareas")}</span></div>
@@ -172,7 +229,7 @@ const [state, setState] = useState([
                 </div>
               </div>
             </div>
-            <div className="w-1/4 bg-blue-100 rounded p-4">
+            <div className="hidden md:block w-1/4 bg-blue-100 rounded p-4">
               <div className="text-xl font-bold py-2">{t("propertyHighlights")}</div>
               <div className="text-lg font-semibold py-2">{t("breakfastInfo")}</div>
               <div className="py-2 text-sm">{t("buffet")}</div>
@@ -188,84 +245,84 @@ const [state, setState] = useState([
             </div>
            </div>
 
-           <div className='w-full mt-4'>
-            <table className='w-full'>
+           <div className='w-full p-4'>
+            <table className='w-full border border-blue-600 md:border-none'>
               <thead>
-            <th className='bg-blue-400 flex text-white w-full'>
+            <th className='hidden md:block bg-blue-400 flex text-white w-full'>
                 <td className='w-1/4 text-left border-b-2 border-blue-500 p-4'>{t("sleeps")}</td>
                 <td className='w-2/4 text-left border-b-2 border-l border-r border-blue-500 p-4'>{t("roomtypes")}</td>
                 <td className='w-1/4 text-left border-b-2 border-blue-500'></td>
               </th>
               </thead>
               <tbody className=''>
-                <th className="flex">
-                <td className='px-4 py-2 w-1/4  border-b-2 flex items-center border-blue-500'>
+                <th className="block md:flex border border-blue-600 md:border-none">
+                <td className='px-4 py-2 md:w-1/4  md:border-b-2 flex items-center md:border-blue-500'>
                   <div className="flex items-center justify-center">
                   <span className='flex items-center mr-2'><BsFillPersonFill/> <span className="font-normal">x4</span></span> <span className='font-normal'>+</span><BsFillPersonFill className='text-lg'/><BsFillPersonFill className='text-lg'/><BsFillPersonFill className='text-lg'/>
                  </div>  
                 </td>
-                <td className='px-4 py-2  border-b-2 border-r border-l border-blue-500 w-2/4'>
-                  <div className=" flex items-center"><IoMdArrowDropright className="text-orange-500 text-xl"/><span className='text-blue-500 font-semibold'>{t("deluxeQueen")}</span></div>
+                <td className='px-4 py-2  md:border-b-2 md:border-r md:border-l md:border-blue-500 md:w-2/4'>
+                  <div className=" flex items-center"><IoMdArrowDropright className=" text-orange-500 text-xl"/><span className='text-blue-500 md:font-semibold'>{t("deluxeQueen")}</span></div>
                   <div className='flex items-center'><span className=" text-sm font-normal text-gray-500 mx-2">{t("queenbed")}</span><IoBedOutline/></div>
                 </td>
-                <td className='px-4 py-2 border-b-2 border-blue-500 w-1/4'><button className="bg-blue-500 py-2 text-white flex justify-center font-semibold w-full rounded">{t("showprice")}</button></td>
+                <td className='block px-4 py-2 md:border-b-2 md:border-blue-500 md:w-1/4'><button className="bg-blue-500 py-2 text-white flex justify-center md:font-semibold w-full rounded">{t("showprice")}</button></td>
               </th>
-              <th className="flex">
-                <td className='px-4 py-2 w-1/4  border-b-2 flex items-center border-blue-500'>
+              <th className="block md:flex border border-blue-600 md:border-none">
+                <td className='px-4 py-2 md:w-1/4  md:border-b-2 flex items-center md:border-blue-500'>
                   <div className="flex items-center justify-center">
                   <span className='flex items-center mr-2'><BsFillPersonFill/> <span className="font-normal">x4</span></span> <span className='font-normal'>+</span><BsFillPersonFill className='text-lg'/><BsFillPersonFill className='text-lg'/>
                  </div>  
                 </td>
-                <td className='px-4 py-2  border-b-2 border-r border-l border-blue-500 w-2/4'>
-                  <div className=" flex items-center"><IoMdArrowDropright className="text-orange-500 text-xl"/><span className='text-blue-500 font-semibold'>{t("kingroom")}</span></div>
+                <td className='px-4 py-2  md:border-b-2 md:border-r md:border-l md:border-blue-500 md:w-2/4'>
+                  <div className=" flex items-center"><IoMdArrowDropright className="text-orange-500 text-xl"/><span className='text-blue-500 md:font-semibold'>{t("kingroom")}</span></div>
                   <div className='flex items-center'><span className=" text-sm font-normal text-gray-500 mx-2">{t("queenbed")}</span><IoBedOutline/> <span className=" text-sm font-normal text-gray-500 mx-2">{t("softbed")}</span><MdBed/></div>
                 </td>
-                <td className='px-4 py-2 border-b-2 border-blue-500 w-1/4'><button className="bg-blue-500 py-2 text-white flex justify-center font-semibold w-full rounded">{t("showprice")}</button></td>
+                <td className='block px-4 py-2 md:border-b-2 md:border-blue-500 md:w-1/4'><button className="bg-blue-500 py-2 text-white flex justify-center font-semibold w-full rounded">{t("showprice")}</button></td>
               </th>
-              <th className="flex">
-                <td className='px-4 py-2 w-1/4  border-b-2 flex items-center border-blue-500'>
+              <th className="block md:flex border border-blue-600 md:border-none">
+                <td className='px-4 py-2 md:w-1/4  md:border-b-2 flex items-center md:border-blue-500'>
                   <div className="flex items-center justify-center">
                   <span className='flex items-center mr-2'><BsFillPersonFill/> <span className="font-normal">x4</span></span> <span className='font-normal'>+</span><BsFillPersonFill className='text-lg'/><BsFillPersonFill className='text-lg'/>
                  </div>  
                 </td>
-                <td className='px-4 py-2  border-b-2 border-r border-l border-blue-500 w-2/4'>
-                  <div className=" flex items-center"><IoMdArrowDropright className="text-orange-500 text-xl"/><span className='text-blue-500 font-semibold'>{t("executivekingroom")}</span></div>
+                <td className='px-4 py-2  md:border-b-2 md:border-r md:border-l md:border-blue-500 md:w-2/4'>
+                  <div className=" flex items-center"><IoMdArrowDropright className="text-orange-500 text-xl"/><span className='text-blue-500 md:font-semibold'>{t("executivekingroom")}</span></div>
                   <div className='flex items-center'><span className=" text-sm font-normal text-gray-500 mx-2">{t("queenbed")}</span><IoBedOutline/> <span className=" text-sm font-normal text-gray-500 mx-2">{t("softbed")}</span><MdBed/></div>
                 </td>
-                <td className='px-4 py-2 border-b-2 border-blue-500 w-1/4'><button className="bg-blue-500 py-2 text-white flex justify-center font-semibold w-full rounded">{t("showprice")}</button></td>
+                <td className='block px-4 py-2 md:border-b-2 md:border-blue-500 md:w-1/4'><button className="bg-blue-500 py-2 text-white flex justify-center font-semibold w-full rounded">{t("showprice")}</button></td>
               </th>
               </tbody>
             </table>
            </div>
 
-           <div className="my-8">
-            <div className="text-2xl font-bold">{t("reasons")}</div>
+           <div className="my-8 px-4 md:px-0">
+            <div className="text-xl md:text-2xl font-bold">{t("reasons")}</div>
             <div className="py-4 flex flex-wrap">
-              <div className="w-1/3 flex items-center text-blue-600 mt-4">
+              <div className=" md:w-1/3 flex items-center text-blue-600 mt-4">
                  <IoWalletOutline className='text-4xl'/>
-                 <div className='text-gray-800 mx-2 font-semibold'>{t("pricebeet")}</div>
+                 <div className='text-gray-800 mx-2 md:font-semibold'>{t("pricebeet")}</div>
               </div>
-              <div className="w-1/3 flex items-center text-blue-600 mt-4">
+              <div className=" md:w-1/3 flex items-center text-blue-600 mt-4">
                  <MdOutlineLock className='text-4xl'/>
-                 <div className='text-gray-800 mx-2 font-semibold'>{t("bookingsafe")}</div>
+                 <div className='text-gray-800 mx-2 md:font-semibold'>{t("bookingsafe")}</div>
               </div>
-              <div className="w-1/3 flex items-center text-blue-600 mt-4">
+              <div className=" md:w-1/3 flex items-center text-blue-600 mt-4">
                  <MdOutlineBrightness7 className='text-4xl'/>
-                 <div className='text-gray-800 mx-2 font-semibold'>{t("manageonline")}</div>
+                 <div className='text-gray-800 mx-2 md:font-semibold'>{t("manageonline")}</div>
               </div>
-              <div className="w-1/3 flex items-center text-blue-600 mt-4">
+              <div className="md:w-1/3 flex items-center text-blue-600 mt-4">
                  <IoChatbubbleOutline className='text-4xl'/>
-                 <div className='text-gray-800 mx-2 font-semibold'>{t("staffspeaksenglish")}</div>
+                 <div className='text-gray-800 mx-2 md:font-semibold'>{t("staffspeaksenglish")}</div>
               </div>
-              <div className="w-1/3 flex items-center text-blue-600 mt-4">
+              <div className=" md:w-1/3 flex items-center text-blue-600 mt-4">
                  <MdFamilyRestroom className='text-4xl'/>
-                 <div className='text-gray-800 mx-2 font-semibold'>{t("facilitiesfamily")}</div>
+                 <div className='text-gray-800 mx-2 md:font-semibold'>{t("facilitiesfamily")}</div>
               </div>
             </div>
            </div>
            
-           <div className=''>
-            <div className="text-2xl font-semibold my-6">{t("title")}</div>
+           <div className='px-4 md:px-0'>
+            <div className="text-xl md:text-2xl font-semibold my-6">{t("title")}</div>
             <div className="flex items-center">
               <div className='p-1 text-white font-semibold rounded-tl-lg rounded-br-lg bg-blue-500 mx-4'>9.5</div>
               <div className='px-2 font-semibold'>{t("rating")}</div> 

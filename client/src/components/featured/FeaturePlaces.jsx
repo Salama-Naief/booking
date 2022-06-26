@@ -3,7 +3,7 @@
 export default function FeaturePlace(){
   
   return(
-     <div className="p-2">
+     <div className="hidden md:block p-2">
        <div className="flex w-full">
           
            <div className="w-1/2 h-72 mr-1 rounded-lg overflow-hidden relative border border-blue-500">

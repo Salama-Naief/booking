@@ -37,7 +37,7 @@ export default function Lists({title,data}){
   
   return(
     <Link to="hotel">
-    <div className="w-auto px-4 md:px-0">
+    <div className="w-auto px-2 md:px-4 md:px-0">
       <div className="pb-6 pt-10 px-4 text-xl md:text-3xl font-bold">{title}</div>
         <Slider {...settings}>
         { data&&data.map((item)=>(

@@ -3,7 +3,7 @@
 export default function FeatureForNextTrip(){
   
   return(
-     <div className="p-2">
+     <div className="hidden md:block p-2">
         <div className="py-4 capitalize text-3xl font-bold">get inspriation for next trip </div>
         <div className="flex w-full">
            <div className="relative w-1/3 rounded-lg overflow-hidden mr-1 border border-blue-500">
