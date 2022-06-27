@@ -11,6 +11,7 @@ import {
 } from "react-router-dom";
 import Hotel from "./Hotel";
 import {useTranslation} from "react-i18next"
+import ReservePage from "./ReservePage";
 export default function RootPage(){
   const { i18n } = useTranslation("topbar");
   return(
@@ -23,6 +24,7 @@ export default function RootPage(){
           <Route path="/singlehotel" element={<SingleHotelPage/>}/>
           <Route path="/register" element={<RegisterPage type="register"/>}/>
           <Route path="/login" element={<RegisterPage type="login"/>}/>
+          <Route path="/payment" element={<ReservePage/>}/>
         </Routes>
         <FooterEmail/>
       </div>

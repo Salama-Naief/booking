@@ -24,7 +24,7 @@ const [state, setState] = useState([
   return (
       <>
        <Navbar type=""/>
-    <div className='container m-auto flex py-8 '>
+    <div className='container m-auto flex py-8 pt-40'>
        <div className="hidden md:block">
          <Search state={state} setState={setState} userInfo={userInfo} setUserInfo={setUserInfo}/>
         </div>

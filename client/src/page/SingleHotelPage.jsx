@@ -18,6 +18,8 @@ import Progressbar from "../components/Progressbar";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
+import {Link} from "react-router-dom";
+
 
 export default function SingleHotelPage() {
 
@@ -47,7 +49,7 @@ const [state, setState] = useState([
   return (
     <div>
          <Navbar type=""/>
-         <div className="container mx-auto py-6">
+         <div className="container mx-auto py-6 pt-40">
            <div className='hidden md:flex'>
                <div className='w-1/4'>
                   <Search state={state} setState={setState} userInfo={userInfo} setUserInfo={setUserInfo}/>
@@ -67,7 +69,7 @@ const [state, setState] = useState([
                        <div className="flex justify-end items-center">
                           <div className='text-blue-500  text-xl font-semibold cursor-pointer'><BsSuitHeart/></div>
                           <div className='text-blue-500 mx-6 text-xl font-semibold cursor-pointer'><BsShare/></div>
-                          <button className="text-lg bg-blue-500 text-white px-2 rounded-lg py-0.5 flex items-center">{t("reserve")}</button>
+                          <a href="#table" className="text-lg bg-blue-500 text-white px-2 rounded-lg py-0.5 flex items-center">{t("reserve")}</a>
                        </div>
                     </div>
                     <div className="flex pt-2">
@@ -229,7 +231,7 @@ const [state, setState] = useState([
                 </div>
               </div>
             </div>
-            <div className="hidden md:block w-1/4 bg-blue-100 rounded p-4">
+            <div className="hidden md:block w-1/4 bg-blue-100 rounded p-4" id="table">
               <div className="text-xl font-bold py-2">{t("propertyHighlights")}</div>
               <div className="text-lg font-semibold py-2">{t("breakfastInfo")}</div>
               <div className="py-2 text-sm">{t("buffet")}</div>
@@ -241,14 +243,14 @@ const [state, setState] = useState([
                  <div className='text-3xl mr-1'><HiBadgeCheck/></div>
                  <div className='text-sm'>{t("properties")}</div>
               </div>
-              <button className="text-lg bg-blue-500 font-bold justify-center text-white px-2 rounded-lg py-1.5 mt-4 flex items-center w-full">{t("reserve")}</button>
+              <Link to="/payment" className="text-lg bg-blue-500 font-bold justify-center text-white px-2 rounded-lg py-1.5 mt-4 flex items-center w-full">{t("reserve")}</Link>
             </div>
            </div>
 
            <div className='w-full p-4'>
-            <table className='w-full border border-blue-600 md:border-none'>
+            <table className='w-full border border-blue-600 md:border-none' >
               <thead>
-            <th className='hidden md:block bg-blue-400 flex text-white w-full'>
+            <th className='hidden md:flex bg-blue-400 text-white w-full'>
                 <td className='w-1/4 text-left border-b-2 border-blue-500 p-4'>{t("sleeps")}</td>
                 <td className='w-2/4 text-left border-b-2 border-l border-r border-blue-500 p-4'>{t("roomtypes")}</td>
                 <td className='w-1/4 text-left border-b-2 border-blue-500'></td>
@@ -265,7 +267,7 @@ const [state, setState] = useState([
                   <div className=" flex items-center"><IoMdArrowDropright className=" text-orange-500 text-xl"/><span className='text-blue-500 md:font-semibold'>{t("deluxeQueen")}</span></div>
                   <div className='flex items-center'><span className=" text-sm font-normal text-gray-500 mx-2">{t("queenbed")}</span><IoBedOutline/></div>
                 </td>
-                <td className='block px-4 py-2 md:border-b-2 md:border-blue-500 md:w-1/4'><button className="bg-blue-500 py-2 text-white flex justify-center md:font-semibold w-full rounded">{t("showprice")}</button></td>
+                <td className='block px-4 py-2 md:border-b-2 md:border-blue-500 md:w-1/4'><Link to="/payment" className="bg-blue-500 py-2 text-white flex justify-center md:font-semibold w-full rounded">{t("showprice")}</Link></td>
               </th>
               <th className="block md:flex border border-blue-600 md:border-none">
                 <td className='px-4 py-2 md:w-1/4  md:border-b-2 flex items-center md:border-blue-500'>
@@ -277,7 +279,7 @@ const [state, setState] = useState([
                   <div className=" flex items-center"><IoMdArrowDropright className="text-orange-500 text-xl"/><span className='text-blue-500 md:font-semibold'>{t("kingroom")}</span></div>
                   <div className='flex items-center'><span className=" text-sm font-normal text-gray-500 mx-2">{t("queenbed")}</span><IoBedOutline/> <span className=" text-sm font-normal text-gray-500 mx-2">{t("softbed")}</span><MdBed/></div>
                 </td>
-                <td className='block px-4 py-2 md:border-b-2 md:border-blue-500 md:w-1/4'><button className="bg-blue-500 py-2 text-white flex justify-center font-semibold w-full rounded">{t("showprice")}</button></td>
+                <td className='block px-4 py-2 md:border-b-2 md:border-blue-500 md:w-1/4'><Link to="/payment" className="bg-blue-500 py-2 text-white flex justify-center font-semibold w-full rounded">{t("showprice")}</Link></td>
               </th>
               <th className="block md:flex border border-blue-600 md:border-none">
                 <td className='px-4 py-2 md:w-1/4  md:border-b-2 flex items-center md:border-blue-500'>
@@ -289,7 +291,7 @@ const [state, setState] = useState([
                   <div className=" flex items-center"><IoMdArrowDropright className="text-orange-500 text-xl"/><span className='text-blue-500 md:font-semibold'>{t("executivekingroom")}</span></div>
                   <div className='flex items-center'><span className=" text-sm font-normal text-gray-500 mx-2">{t("queenbed")}</span><IoBedOutline/> <span className=" text-sm font-normal text-gray-500 mx-2">{t("softbed")}</span><MdBed/></div>
                 </td>
-                <td className='block px-4 py-2 md:border-b-2 md:border-blue-500 md:w-1/4'><button className="bg-blue-500 py-2 text-white flex justify-center font-semibold w-full rounded">{t("showprice")}</button></td>
+                <td className='block px-4 py-2 md:border-b-2 md:border-blue-500 md:w-1/4'><Link to="/payment" className="bg-blue-500 py-2 text-white flex justify-center font-semibold w-full rounded">{t("showprice")}</Link></td>
               </th>
               </tbody>
             </table>

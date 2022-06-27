@@ -11,7 +11,7 @@ export default function HomePage(){
   return(
     <>
      <Navbar type="home"/>
-    <div className="pt-10 container m-auto">
+    <div className="pt-40 container m-auto">
       <Lists title={t("exploreegypt")} data={exploreEgypt}/>
       <Lists title={t("browseproperty")} data={browseByProp}/>
          <FeaturePlaces/>

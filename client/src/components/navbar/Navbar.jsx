@@ -45,14 +45,14 @@ export default function Navbar({type}){
       <div className="fixed w-full bg-blue-900 z-20 left-0 top-0">
       <div className="relative container m-auto">
      <div className="relative py-4 flex justify-between items-center px-5">
-       <div className="px-2 py-1 text-2xl md:text-3xl font-bold w-7/12 cursor-pointer">Booking</div>
+       <Link to="/"><div className="px-2 py-1 text-2xl md:text-3xl font-bold w-1/2 cursor-pointer">Booking</div></Link>
        <div className="w-1/2 md:hidden  flex justify-end">
         
           <IoPersonCircleOutline className="text-3xl mr-4 cursor-pointer"/>
           <IoMenu onClick={()=>setSidemenu(true)} className="text-3xl cursor-pointer"/>
         
        </div>
-       <div className="hidden md:flex justify-between w-5/12 ">
+       <div className="hidden md:flex justify-between w-1/2 ">
          <div className="flex items-center justify-around w-1/3">
            <div className=""> EGP </div>
            
@@ -104,7 +104,7 @@ export default function Navbar({type}){
       </div>
       </div>
       {
-      type==="home" && <div className="hidden mt-40 md:block">
+      type==="home" && <div className="hidden mt-32 md:block">
       <hr className=""/>
       <div className="p-4 mb-4">
          <div className="text-5xl font-bold py-4">
@@ -273,7 +273,7 @@ export default function Navbar({type}){
            <div className="mt-4 w-full cursor-pointer px-3 py-1 border border-white flex items-center">{t("listProprty")}</div>
            <div className="flex items-center mt-4 justify-between w-full">
            <div className="px-2">Language</div>
-            <select name="" id=""  onChange={langhandler}  className='bg-black text-white w-full bg-white outline-none border-0 py-2'>
+            <select name="" id=""  onChange={langhandler}  className=' text-white w-full bg-white outline-none border-0 py-2'>
                 <option  value="en">
                   En
                     <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTlHXsCWAOjRArpdl7OOhmWW_99VWhp3IRO1Q&usqp=CAU" className="object-cover w-7 h-7 rounded-full overflow-hidden cursor-pointer" alt=""/>
